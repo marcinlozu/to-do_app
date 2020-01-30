@@ -1,9 +1,10 @@
-//variables
+//global variables
 const addBtn = document.getElementById('addBtn');
+const myNodeList = document.getElementsByTagName('li')
+const close = document.getElementsByClassName('close');
+const listElement = document.getElementsByTagName('li');
 
 //create "close" button and append it to each list item
-const myNodeList = document.getElementsByTagName('li')
-
 for(let i=0; i < myNodeList.length; i++) {
 	const span = document.createElement('span');
 	const txt = document.createTextNode('\u00D7');
@@ -13,10 +14,8 @@ for(let i=0; i < myNodeList.length; i++) {
 }
 
 //Click on a close button to remove element from the list
-const close = document.getElementsByClassName('close');
 const closingFunc = function() {
-	let div = this.parentElement;
-	div.style.display = 'none';
+	this.parentElement.remove();
 };
 
 for (let i=0;i<close.length; i++) {
@@ -24,8 +23,6 @@ for (let i=0;i<close.length; i++) {
 	
 };
 //check elements
-let listElement = document.getElementsByTagName('li');
-
 const checkedFunction = function(event) {
 	event.target.className = 'checked';
 };
@@ -50,7 +47,6 @@ const newElement = function() {
 
 	document.getElementById('myInput').value = '';
 };
-
 
 //add button action
 addBtn.onclick = newElement;
