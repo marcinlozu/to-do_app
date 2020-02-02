@@ -47,6 +47,8 @@ const checkElementFunction = function () {
 	};
 };
 checkElementFunction();
+//
+
 
 //create elements
 const newElement = function() {
@@ -71,4 +73,24 @@ const newElement = function() {
 
 };
 //
-addBtn.onclick = newElement
+addBtn.onclick = newElement;
+
+clearBtn.onclick = function clearAll() {
+	let ul = document.getElementById('myUL');
+
+	while(ul.hasChildNodes()) {
+		ul.removeChild(ul.firstChild)
+	}
+
+};
+
+
+removeBtn.onclick = function removeDone() {
+	let ul = document.getElementsByClassName('checked');
+
+	while(ul.length > 0) {
+		ul[0].parentNode.removeChild(ul[0])
+	}
+
+};
+
